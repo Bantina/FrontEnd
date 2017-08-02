@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex布局test</title>
+	<style>
+	.container{
+		display:flex;
+		flex-wrap:wrap;
+		background: #eee;
+		width:100%;
+		height: 100%;
+	}
+	.box{
+		width:210px;
+		height: 210px;
+		background: rgba(7,11,21,.8);
+		border-radius: 10px;
+		margin: 20px;
+		position: relative;
+	}
+	.item{
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background: #E2870B;
+		z-index: 10;
+		margin:10px;
+	}
+	.text{
+		position: absolute;
+		top:48%;
+		left: 20px;
+		color: #fff;
+		z-index: 20;
+	}
+	.split{
+		width:100%;
+		border-bottom: solid 1px #444;
+		margin: 10px 0;
+	}
+	/*11.默认首行左对齐*/
+	.box11{
+		display: flex;
+	}
+	/*12.主轴居中对齐*/
+	.box12{
+		display: flex;
+		justify-content:center;
+	}
+	/*13.主轴右对齐*/
+	.box13{
+		display: flex;
+		justify-content:flex-end;
+	}
+	/*14.交叉轴对齐方式，左起点 垂直主轴*/
+	.box14{
+		display: flex;
+		align-items:center;
+	}
+	/*15.居中，主轴及交叉轴都居中*/
+	.box15{
+		display: flex;
+		justify-content:center;
+		align-items:center;
+	}
+	/*16.主轴居中，交叉轴居下*/
+	.box16{
+		display: flex;
+		justify-content:center;
+		align-items:flex-end;
+	}
+	/*17.右下角：主轴居右，交叉轴居下*/
+	.box17{
+		display: flex;
+		justify-content:flex-end;
+		align-items:flex-end;
+	}
+	/*20.两端对齐，两端无间距*/
+	.box20{
+		display: flex;
+		justify-content:space-between;
+	}
+	/*21.[垂直][两端对齐],两端无间距*/
+	.box21{
+		display: flex;
+		flex-direction:column;
+		justify-content:space-between;
+	}
+	/*22.[垂直][两端对齐][交叉轴居中]*/
+	.box22{
+		display: flex;
+		flex-direction:column;
+		justify-content:space-between;
+		align-items:center;
+	}
+	/*23.[垂直][两端对齐][交叉轴居下]*/
+	.box23{
+		display: flex;
+		flex-direction:column;
+		justify-content:space-between;
+		align-items:flex-end;
+	}
+	/*24.斜对角线[单个项目]*/
+	.box24{
+		display: flex;
+	}
+	.box24 .item:nth-child(2){
+		align-self:center;
+	}
+	/*13.斜对角线[单个项目][两端对齐][交叉轴居下]*/
+	.box25{
+		display: flex;
+		justify-content:space-between;
+	}
+	.box25 .item:nth-child(2){
+		align-self:flex-end;
+	}
+	/*30.斜对角线[单个项目][交叉轴居中][交叉轴居下]*/
+	.box30{
+		display: flex;
+	}
+	.box30 .item:nth-child(2){
+		align-self:center;
+	}
+	.box30 .item:nth-child(3){
+		align-self:flex-end;
+	}
+	/*40.[换行][主轴居右][交叉轴两端对齐]*/
+	.box40{
+		display: flex;
+		flex-wrap:wrap;
+		justify-content:flex-end;
+		align-content:space-between;
+	}
+	/*41.[换行][两端对齐][子主轴空间][子两端对齐]*/
+	.box41{
+		display: flex;
+		flex-wrap:wrap;
+		align-content:space-between;
+	}
+	.box41 .column{
+		flex-basis:100%;
+		display: flex;
+		justify-content:space-between;
+	}
+	/*50.[换行][子100%][子两端对齐]*/
+	.box50{
+		display: flex;
+		flex-wrap:wrap;
+	}
+	.box50 .row{
+		display: flex;
+		flex-basis:100%;
+		justify-content:space-between;
+	}
+	.box50 .row:nth-child(2){
+		justify-content:center;
+	}
+	/*60.[换行][交叉轴两端对齐]*/
+	.box60{
+		display: flex;
+		flex-wrap:wrap;
+		align-content:space-between;
+	}
+	/*61.[换行][垂直方向][交叉轴两端对齐]*/
+	.box61{
+		display: flex;
+		flex-direction:column;
+		flex-wrap:wrap;
+		align-content:space-between;
+	}
+	/*62.[换行][子][子-子]*/
+	.box62{
+		display: flex;
+		flex-wrap:wrap;
+	}
+	.box62 .row{
+		flex-basis:100%;
+		display: flex;
+	}
+	.box62 .row:nth-child(2){
+		justify-content:center;
+	}
+	.box62 .row:nth-child(3){
+		justify-content:space-between;
+	}
+	/*90.[换行]*/
+	.box90{
+		display: flex;
+		flex-wrap:wrap;
+	}
+
+	.block-wrapper{
+		width:100%;
+		height: 200px;
+		background: rgba(7,11,21,.8);
+		margin: 20px;
+		position: relative;
+	}
+	.block{
+		height: 100%;
+	}
+	.block1{
+		background: #068875;
+	}
+	.block2{
+		background: #37771c;
+	}
+	.block3{
+		background: #af6d14;
+	}
+	.wrapper01{
+		display: flex;
+	}
+	.wrapper01 .block{
+		flex:1;
+	}
+	.wrapper02{
+		display: flex;
+	}
+	.wrapper02 .block1{
+		flex:0 0 300px;
+	}
+	.wrapper02 .block2{
+		flex:1;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box box11">
+			<span class="item"></span>
+			<span class="text">11.默认首行左对齐</span>
+		</div>
+		<div class="box box12">
+			<span class="item"></span>
+			<span class="text">12.主轴居中对齐</span>
+
+		</div>
+		<div class="box box13">
+			<span class="item"></span>
+			<span class="text">13.主轴右对齐</span>
+		</div>
+		<div class="box box14">
+			<span class="item"></span>
+			<span class="text">14.交叉轴对齐方式，左起点 垂直主轴</span>
+		</div>
+		<div class="box box15">
+			<span class="item"></span>
+			<span class="text">15.居中，主轴及交叉轴都居中</span>
+		</div>
+		<div class="box box16">
+			<span class="item"></span>
+			<span class="text">16.主轴居中，交叉轴居下</span>
+		</div>
+		<div class="box box17">
+			<span class="item"></span>
+			<span class="text">17.右下角：主轴居右，交叉轴居下</span>
+		</div>
+		<!-- 双项目 -->
+		<div class="box box20">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">20.[水平两端对齐]，两端无间距</span>
+		</div>
+		<div class="box box21">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">21.[垂直][两端对齐],两端无间距</span>
+		</div>
+		<div class="box box22">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">22.[垂直][两端对齐][交叉轴居中]</span>
+		</div>
+		<div class="box box23">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">23.[垂直][两端对齐][交叉轴居下]</span>
+		</div>
+		<div class="box box24">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">24.斜对角线[单个项目]</span>
+		</div>
+		<div class="box box25">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">25.斜对角线[单个项目][两端对齐][交叉轴居下]</span>
+		</div>
+		<!-- 三项目 -->
+		<div class="box box30">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">30.斜对角线[单个项目][交叉轴居中][交叉轴居下]</span>
+		</div>
+		<!-- 四项目 -->
+		<div class="box box40">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">40.[换行][主轴居右][交叉轴两端对齐]</span>
+		</div>
+		<div class="box box41">
+			<div class="column">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			<div class="column">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			<span class="text">41.[换行][两端对齐][子主轴空间][子两端对齐]</span>
+		</div>
+		<!-- 五项目 -->
+		<div class="box box50">
+			<div class="row">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			<div class="row">
+				<span class="item"></span>
+			</div>
+			<div class="row">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			<span class="text">50.[换行][子100%][子两端对齐]</span>
+		</div>
+		<!-- 六项目 -->
+		<div class="box box60">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">60.[换行][交叉轴两端对齐]</span>
+		</div>
+		<div class="box box61">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">61.[换行][垂直方向][交叉轴两端对齐]</span>
+		</div>
+		<div class="box box62">
+			<div class="row">
+				<span class="item"></span>
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			<div class="row">
+				<span class="item"></span>
+			</div>
+			<div class="row">
+				<span class="item"></span>
+				<span class="item"></span>
+			</div>
+			<span class="text">62.[换行][子][子-子]</span>
+		</div>
+		<!-- 九项目 -->
+		<div class="box box90">
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="item"></span>
+			<span class="text">90.[换行]</span>
+		</div>
+
+		<div class="split"></div>
+		
+		<!-- 缩放布局 -->
+		<div class="block-wrapper wrapper01">
+			<div class="block block1"></div>
+			<div class="block block2"></div>
+			<div class="block block3"></div>
+			<span class="text">01. [flex]-等比</span>
+		</div>
+		<div class="block-wrapper wrapper02">
+			<div class="block block1"></div>
+			<div class="block block2"></div>
+			<span class="text">02. [flex:0,0,固定值] [flex:1]-前者固定，后者缩放</span>
+		</div>
+	</div>
+</body>
+</html>
