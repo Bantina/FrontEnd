@@ -18,6 +18,12 @@ A project to record the individual learning of FrontEnd
 - [ES5兼容法则](https://github.com/Bantina/FrontEnd/blob/master/Blog/ES5%E5%85%BC%E5%AE%B9%E6%B3%95%E5%88%99.md)
 - [ES6=>ES5](https://github.com/Bantina/FrontEnd/blob/master/Blog/ES6%3D%3EES5.md)
 - [启动本地服务](https://github.com/Bantina/FrontEnd/blob/master/Blog/%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1.md)
+- [Vuex学习总结](https://github.com/Bantina/FrontEnd/blob/master/Blog/vuex%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93.md)
 
 #### 其他
 - [git 本地分支提交到远程分支master](https://github.com/Bantina/FrontEnd/blob/master/Blog/git%20%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF.md)
+
+### FrontEnd工具站点集合
+- [国内省市区级联数据](https://github.com/Bantina/FrontEnd/tree/master/assets/js/areaData.js)
+- [ES6特性=>ES5](http://es6-features.org/#Constants)
+- [can i use?兼容性检测](https://caniuse.com/)
