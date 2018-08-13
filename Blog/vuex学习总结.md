@@ -1,3 +1,8 @@
+#### 使用Vuex的优劣
+###### 优势：
+- 跨组件使用数据
+- 统一管理数据规范
+
 #### 图解Vuex内部的数据流动：
 ![image](https://github.com/Bantina/FrontEnd/blob/master/assets/img/vuex01.png)
 【数据流动的单向性：】

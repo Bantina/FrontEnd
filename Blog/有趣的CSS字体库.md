@@ -55,3 +55,10 @@ font-family: 'Pacifico', cursive;
 font-family: 'Cookie', cursive;
 ```
 ![图片](https://github.com/Bantina/Bantina.github.io/blob/master/img/post/css05.png?raw=true)
+
+### 六、Gaegu-手绘风
+```css
+@import url("https://fonts.googleapis.com/css?family=Gaegu");
+font-family: Gaegu, sans-serif;
+```
+
